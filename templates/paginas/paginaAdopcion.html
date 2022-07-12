@@ -1,0 +1,51 @@
+
+{% load  static %}
+
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilopaginaAdopcion.css'%}">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Adopcion</title>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="header1">
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'images/img/logo.jpg'%}" alt="LOGO MascotasのAdo"></a>
+            </div>
+        </div>
+        <div class="principal1">
+            <div class="titulo1">
+                <h1> の A D O P C I O N の</h1>
+            </div>
+            <div class="row">
+                <div class="texto1">
+                    <h2>¿ Quieres adoptar a un perro ? </h2>
+                </div>
+                <p class="parrafo"> Si asi lo deseas puedes hacer click en el boton que dice </p>
+                <p class="parrafo"> " A D O P T A R "</p>
+                <p class="parrafo"> Que se encuentra mas abajo</p>
+                <p class="parrafo"> Si te gusta lo que ves puedes hacer click en la imagen que se muestra</p>
+                <button class="btn btn-primary" id="btn-verperro" onclick="mostrarAdoptar();">VER PERRO</button>
+                <div id="info" class="text-center">
+                    <h1></h1>
+                </div>
+                <div id="btnadoptar">
+                    <button class="btn btn-primary" id="btn-adoptar" onclick="pagAdopcion()">ADOPTAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script src="{% static 'js/adopcion.js' %}"></script>
+        <script src="{% static 'js/btnadoptar.js' %}"></script>
+</body>
+
+</html>

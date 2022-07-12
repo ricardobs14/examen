@@ -1,0 +1,49 @@
+
+{%load static%}
+
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/estilopaginaPerros.css'%}">
+    <title>Bandana</title>
+</head>
+<body>
+    <div class="container1">
+        <div class="header1">
+            <div class="logo">
+                <a href="{% url 'home'%}"><img src="{% static 'images/img/logo.jpg'%}" alt="LOGO MascotasのAdo"></a>
+            </div>
+        </div>
+            <div class="principal1">
+                <div class="titulo1" >
+                <h1>  の B A N D A N A S の</h1>
+                </div>
+                <div class="img1">
+            <img src="{%static 'images/img/perroBandana.jpg'%}" alt="perroBandana">
+                </div>
+                <div class="texto1">
+            <h1> Bandanas </h1>
+            <br>
+            <h2> Descripcion:</h2>
+            <br>
+            <h3> Bandanas para perros hechas de una tela resistente y facil de lavar </h3>
+            <br>
+            <h3> - Material: 90% Algodon 10% Poliester </h3>
+            <br><br><br>
+            <h3> - Color: Rojo - Negro </h3>
+            <br><br>
+                </div>
+                <div class="texto2">
+                    <h1> $ 2.990 </h1>
+                    <p> Agregar al carrito </p>
+                    <div class="iconocarrito">
+                        <img src="{% static 'images/icons/iconoCarro.jpg'%}" alt="carro" />
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
