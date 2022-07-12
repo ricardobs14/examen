@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+
+        {% block css %} {% endblock css %}
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/estiloPagina.css' %}">
+        <title>{% block title %}{% endblock title %}</title>
+    </head>
+    <body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="{% static 'images/img/logo.jpg' %}" alt="LOGO MascotasのAdo">
+            </div>
+            <div class="navegacion">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                    </li> 
+                    {% if not user.is_authenticated %}        
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'registrar' %}">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Iniciar Sesion</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaBandana' %}">Bandana</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaCollar' %}">Collar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaCorrea' %}">Correa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaAlimento' %}">Alimento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaJuguete' %}">Juguete</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaRopa' %}">Ropa</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_perro' %}">Registrar Perro</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'list_perros' %}">Borrar Perro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_perros' %}">Editar Perro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_perros' %}">Listar Perros</a>
+                    </li>
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_producto' %}">Registrar Producto</a>
+                    </li>
+                        <a class="nav-link" href="{%url 'list_producto' %}">Borrar Producto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_producto' %}">Editar Producto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_producto' %}">Listar Productos</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{%url 'perro_collection' %}">Perros API</a>
+                    </li>
+                    <a class="nav-link" href="{%url 'producto_collection' %}">Producto API</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+    <br>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+    </div>
+    <div>
+        {% block footer %} {% endblock %}
+    </div>
+    {% block javascript %} 
+    <script src="{% static 'js/btnadoptar.js' %}"></script>
+    <script src="{% static 'js/adopcion.js' %}"></script>
+    {% endblock javascript %}
+    </body>
+</div>
+</html>

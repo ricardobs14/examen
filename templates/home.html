@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+{%load static %}
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/estiloPagina.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilopaginaPerros.css' %}">
+    <title>MascotasのAdo</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="{% static 'images/img/logo.jpg' %}" alt="LOGO MascotasのAdo">
+            </div>
+            <div class="navegacion">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+                    </li> 
+                    {% if not user.is_authenticated %}        
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'registrar' %}">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Iniciar Sesion</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaBandana' %}">Bandana</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaCollar' %}">Collar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaCorrea' %}">Correa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaAlimento' %}">Alimento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaJuguete' %}">Juguete</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'paginaRopa' %}">Ropa</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_perro' %}">Registrar Perro</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'list_perros' %}">Borrar Perro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_perros' %}">Editar Perro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_perros' %}">Listar Perros</a>
+                    </li>
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_producto' %}">Registrar Producto</a>
+                    </li>
+                        <a class="nav-link" href="{%url 'list_producto' %}">Borrar Producto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_producto' %}">Editar Producto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_producto' %}">Listar Productos</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{%url 'perro_collection' %}">Perros API</a>
+                    </li>
+                    <a class="nav-link" href="{%url 'producto_collection' %}">Producto API</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <br>
+        <!--- ahora el cuerpo principal donde esta el carrusel-->
+            <div class="principal">
+                <div id="contenedorCarrusel">
+                    <div class="carrusel">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="{% url 'paginaAdopcion' %}"><img id="imgc1" class="d-block" src="{% static 'images/img/carrusel1.jpg' %}" alt="imagencarrusel1"></a>
+                                    <div class="carousel-caption d-none d-md-block" id="imagencarrusel1">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+
+                                    <img id="imgc2" class="d-block" src="{% static 'images/img/carrusel2.jpg' %}" alt="imagencarrusel2">
+
+                                    <div class="carousel-caption d-none d-md-block" id="imagencarrusel2">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+
+                                    <img id="imgc3" class="d-block" src="{% static 'images/img/carrusel3.jpg' %}" alt="imagencarrusel3">
+
+                                    <div class="carousel-caption d-none d-md-block" id="imagencarrusel3">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+
+                                    <img id="imgc4" class="d-block" src="{% static 'images/img/carrusel4.jpg' %}" alt="imagencarrusel4">
+
+                                    <div class="carousel-caption d-none d-md-block" id="imagencarrusel4">
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <br>
+        <br>
+        <br>
+        <footer class="footer">
+            <div id="flex-container">
+                <!--Primera Imagen-->
+                <div class="contenedor_imagen_texto">
+                    <div id="imagen1" class="imagenes">
+                        <a href="{%url 'paginaBandana'%}"><img src="{% static 'images/img/perroBandana.jpg' %}" alt="imgperrobandana">
+                    </a>
+                </div>
+                    <div class="texto">
+                        <h1> BANDANAS </h1>
+                        <h4> $2.990 </h4>
+                    </div>
+                </div>
+
+                <!--Segunda Imagen-->
+                <div class="contenedor_imagen_texto">
+                    <div id="imagen2" class="imagenes">
+                        <a href="{%url 'paginaCollar'%}"><img src="{% static 'images/img/perroCollar.jpg' %}" alt="imgperroCollar">
+                    </a>
+                    </div>
+                    <div class="texto">
+                        <h1> COLLARES </h1>
+                        <h4> $1.990 </h4>
+                    </div>
+                </div>
+
+                <!--tercera Imagen-->
+                <div class="contenedor_imagen_texto">
+                    <div id="imagen3" class="imagenes">
+                        <a href="{%url 'paginaCorrea'%}"><img src="{% static 'images/img/perroCorrea.jpg' %}" alt="imgperroCorrea">
+                    </a>
+                </div>
+                    <div class="texto">
+                        <h1> CORREA </h1>
+                        <h4> $3.990 </h4>
+                    </div>
+                </div>
+
+                <!--cuarta Imagen-->
+                <div class="contenedor_imagen_texto">
+                    <div id="imagen4" class="imagenes">
+                        <a href="{%url 'paginaAlimento'%}"><img src="{% static 'images/img/perroAlimento.jpg' %}" alt="imgperroAlimento">
+                    </a>
+                </div>
+                    <div class="texto">
+                        <h1> ALIMENTO </h1>
+                        <h4> $5.990 </h4>
+                    </div>
+                </div>
+
+                <!--quinta Imagen-->
+                <div class="contenedor_imagen_texto">
+                    <div id="imagen5" class="imagenes">
+                        <a href="{%url 'paginaJuguete'%}"><img src="{% static 'images/img/perroJuguete.jpg' %}" alt="imgperroJuguete">
+                    </a>
+                </div>
+                    <div class="texto">
+                        <h1> JUGUETE </h1>
+                        <h4> $2.990 </h4>
+                    </div>
+                </div>
+
+                <!--sexta Imagen-->
+                <div class="contenedor_imagen_texto">
+                    <div id="imagen6" class="imagenes">
+                        <a href="{%url 'paginaRopa'%}"><img src="{% static 'images/img/perroRopa.jpg' %}" alt="imgperroRopa">
+                    </a>
+                </div>
+                    <div class="texto">
+                        <h1> ROPA </h1>
+                        <h4> $6.990 </h4>
+                    </div>
+                </div>
+            <br>
+            <br>
+            <br>
+            <div class="rrss">
+                <ul class="iconsrrss">
+                    <li>
+                        <a href="https://es-la.facebook.com/"><img src="{% static 'images/icons/facebook.png' %}" alt="facebook" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/"><img src="{% static 'images/icons/instagram.png' %}" alt="instagram" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.google.com/intl/es-419/gmail/about/"><img src="{% static 'images/icons/email.png' %}" alt="email" /></a>
+                    </li>
+                </ul>
+                <h3> Contactanos a traves de nuestras redes </h3>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+
+    </div>
+    <script src="{% static 'js/btnadoptar.js' %}"></script>
+    <script src="{% static 'js/adopcion.js' %}"></script>
+</body>
+
+</html>
