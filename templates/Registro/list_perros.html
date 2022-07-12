@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} 
+
+{% block titulo_principal %}
+
+<div id="titulo_pagina">
+    Lista de Perros Registrados
+</div>
+{% endblock %} 
+
+{% block content %} {% if object_list %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Raza</th>
+            <th>Vacunas</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in object_list %}
+        <tr>
+            <th scope="row">{{ p.nombre }} </th>
+            <td>{{ p.raza }}</td>
+            <td>{{ p.vacunas }}</td>
+
+            <td><a class="btn btn-primary" href="{% url 'edit_perro' p.id %}">Editar</a></td>
+            <td><a class="btn btn-danger" href="{% url 'del_perro' p.id %}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+    <h1>No hay registros de perros</h1>
+{% endif %} {% endblock %}
