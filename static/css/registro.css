@@ -1,0 +1,22 @@
+#registro {
+    padding-top: 2em;
+    padding-bottom: 4em;
+    width: 100%;
+    align-content: center;
+    display: inline-block;
+}
+
+.col-md-2 {
+    width: auto;
+}
+
+.field_container{
+    align-content: center;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    #formulario {
+        width: 100%;
+    }
+}

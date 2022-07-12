@@ -1,0 +1,32 @@
+.texto1{
+    text-align: center;
+}
+
+.header1{
+    text-align: center;
+}
+
+.titulo1{
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    color: aliceblue;
+}
+
+.parrafo{
+    text-align: center;
+}
+
+#info{
+    text-align: center;
+}
+
+#btn-verperro{
+    margin-left: 700px;
+}
+
+#btnadoptar{
+    display: none;
+    margin-left: 700px;
+    margin-top: 25px;
+}
+

@@ -1,0 +1,140 @@
+
+.carrusel {
+    display: flex;
+    justify-content: center;
+}
+
+#flex-container{
+  width: 1024px;
+  height: auto;
+  position: relative;
+  margin: auto;
+}
+.contenedor_imagen_texto {
+  width: 335px;
+  height: auto;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.imagen{
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: inline;
+}
+
+.texto {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: inline;
+  
+}
+.texto {
+  height: auto;
+  text-align: center;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-container > div {
+  margin: 100px;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.imagenes{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.navegacion{
+  background-color: rgb(0, 0, 0);
+  display: inline-block;
+  list-style-type: none;
+} 
+
+.header{
+  text-align: center;
+}
+
+.rrss{
+  width: 30%;
+  text-align: center;
+  justify-content: center;
+  display: inline;
+}
+
+.rrss ul li{
+  background-color: rgb(255, 255, 255);
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  list-style-type: none;
+  
+}
+
+.rrss img{
+  height: 50px;
+}
+
+
+@media screen and (max-width:900px) {
+  #contenedorCarrusel{
+    display: none;
+  }
+}
+
+
+@media screen and (max-width:600px) {
+  .contenedor_imagen_texto{
+    display: flex;
+    text-align: center;
+    margin-left: 175px;
+  }
+  .rrss{
+    display: flex;
+    text-align: center;
+    margin-left: 175px;
+  }
+  .logo{
+    display: flex;
+    text-align: center;
+    margin-left: 30px;
+  }
+  .img1{
+    display: flex;
+    text-align: center;
+    margin-left: 175px;
+  }
+  .texto1{
+    display: flex;
+    text-align: center;
+    margin-left: 175px;
+  }
+  .texto2{
+    display: flex;
+    text-align: center;
+  }
+}
+
+.infocovid{
+  text-align: center;
+  display: inline-block;
+  margin-left: 70px;
+}
+
+#btn-ocultar{
+  margin-bottom: 1px;
+}
+
+
