@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} 
+
+{% block titulo_principal %}
+
+<div id="titulo_pagina">
+    Lista de Productos
+</div>
+{% endblock %} 
+
+{% block content %} {% if object_list %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in object_list %}
+        <tr>
+            <th scope="row">{{ p.nombre }} </th>
+            <td>{{ p.stock }}</td>
+            <td>$ {{ p.precio }}</td>
+
+            <td><a class="btn btn-primary" href="{% url 'edit_producto' p.id %}">Editar</a></td>
+            <td><a class="btn btn-danger" href="{% url 'del_producto' p.id %}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+    <h1>No hay productos</h1>
+{% endif %} {% endblock %}
